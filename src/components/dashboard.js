@@ -12,10 +12,14 @@ import DashSrc from './dashsrc';
 const mdTheme = createTheme();
 
 export default function Dashboard() {
+
+
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex',height:" 95vh" }}>
+
         <DashSrc />
+
         <Box
           component="main"
           sx={{

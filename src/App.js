@@ -10,6 +10,7 @@ import UpdateForm from './components/updateuser';
 
 function App() {
   const [user, setLoginUser] = useState({})
+  
   return(
 
     <BrowserRouter>
@@ -20,7 +21,7 @@ function App() {
           <Route exact path="/signin" element={<Signin setLoginUser={setLoginUser} />} />
 
             {/* user route */}
-            <Route exact path="/dashboard/:id/:name" element={<Dashboard setLoginUser={setLoginUser} />} />
+            <Route exact path="/dashboard/:id/:name" element={<Dashboard User={user} />} />
             <Route exact path="/history/:id/:name" element={<History />} />
             <Route exact path="/update_user/:id/:name" element={<UpdateForm  />} />
 

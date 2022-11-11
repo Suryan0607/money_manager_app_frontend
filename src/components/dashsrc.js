@@ -76,9 +76,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function DashSrc() {
 
   const { id, name } = useParams();
-
-
-
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -142,7 +139,7 @@ export default function DashSrc() {
 
         <List component="nav">
 
-          <Link component={RouterLink} to={`/dashboard/${id}/${name}`} >
+        <Link component={RouterLink} to={`/dashboard/${id}/${name}`} >
             <ListItemButton >
               <ListItemIcon>
                 <DashboardIcon />

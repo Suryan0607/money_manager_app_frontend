@@ -11,6 +11,7 @@ import axios from "axios";
 
 const mdTheme = createTheme();
 
+
 export default function UpdateForm() {
     const [userdata, setUserdata] = useState({
         username: "",
@@ -21,13 +22,12 @@ export default function UpdateForm() {
 
 
     const navigate = useNavigate();
-
+    
     const { id, name } = useParams();
 
 
-
     useEffect(() => {
-        axios.get(`https://money-manager-app-0.herokuapp.com/api/user/${id}`).then(response => {
+        axios.get(`${process.env.REACT_APP_BASE_URL}/user/${id}`).then(response => {
             setUserdata(response.data[0]);
         }).catch(err => {
             console.log('Error: ', err);
@@ -41,7 +41,7 @@ export default function UpdateForm() {
     const onSubmit = async (data) => {
         try {
 
-            const response = await axios.put(`https://money-manager-app-0.herokuapp.com/api/user/${id}`, data);
+            const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/user/${id}`, data);
 
             if (response.data.username === "") {
                 navigate(`/update_user/${id}/${name}`)
